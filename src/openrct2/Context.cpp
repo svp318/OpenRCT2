@@ -527,18 +527,25 @@ namespace OpenRCT2
             ClassifiedFileInfo info;
             if (TryClassifyFile(stream, &info))
             {
-                if (info.Type == FILE_TYPE::SAVED_GAME || info.Type == FILE_TYPE::SCENARIO)
+                if (info.Type == FILE_TYPE::PARK || info.Type == FILE_TYPE::SAVED_GAME || info.Type == FILE_TYPE::SCENARIO)
                 {
                     std::unique_ptr<IParkImporter> parkImporter;
-                    if (info.Version <= FILE_TYPE_S4_CUTOFF)
+                    if (info.Type == FILE_TYPE::PARK)
                     {
-                        // Save is an S4 (RCT1 format)
-                        parkImporter = ParkImporter::CreateS4();
+                        parkImporter = ParkImporter::CreateParkFile(*_objectRepository);
                     }
                     else
                     {
-                        // Save is an S6 (RCT2 format)
-                        parkImporter = ParkImporter::CreateS6(*_objectRepository);
+                        if (info.Version <= FILE_TYPE_S4_CUTOFF)
+                        {
+                            // Save is an S4 (RCT1 format)
+                            parkImporter = ParkImporter::CreateS4();
+                        }
+                        else
+                        {
+                            // Save is an S6 (RCT2 format)
+                            parkImporter = ParkImporter::CreateS6(*_objectRepository);
+                        }
                     }
 
                     try

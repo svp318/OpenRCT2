@@ -34,6 +34,7 @@ enum class FILE_TYPE
     SAVED_GAME,
     SCENARIO,
     TRACK_DESIGN,
+    PARK,
 };
 
 struct ClassifiedFileInfo
