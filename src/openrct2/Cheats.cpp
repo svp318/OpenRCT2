@@ -50,6 +50,7 @@ bool gCheatsDisablePlantAging = false;
 bool gCheatsEnableChainLiftOnAllTrack = false;
 bool gCheatsAllowArbitraryRideTypeChanges = false;
 bool gCheatsDisableRideValueAging = false;
+bool gCheatsAutomaticRidePricing = false;
 bool gCheatsIgnoreResearchStatus = false;
 bool gCheatsEnableAllDrawableTrackPieces = false;
 
@@ -74,6 +75,7 @@ void CheatsReset()
     gCheatsDisablePlantAging = false;
     gCheatsAllowArbitraryRideTypeChanges = false;
     gCheatsDisableRideValueAging = false;
+    gCheatsAutomaticRidePricing = false;
     gCheatsIgnoreResearchStatus = false;
 }
 
@@ -120,6 +122,7 @@ void CheatsSerialise(DataSerialiser& ds)
         CheatEntrySerialise(ds, CheatType::EnableChainLiftOnAllTrack, gCheatsEnableChainLiftOnAllTrack, count);
         CheatEntrySerialise(ds, CheatType::AllowArbitraryRideTypeChanges, gCheatsAllowArbitraryRideTypeChanges, count);
         CheatEntrySerialise(ds, CheatType::DisableRideValueAging, gCheatsDisableRideValueAging, count);
+        CheatEntrySerialise(ds, CheatType::AutomaticRidePricing, gCheatsAutomaticRidePricing, count);
         CheatEntrySerialise(ds, CheatType::IgnoreResearchStatus, gCheatsIgnoreResearchStatus, count);
         CheatEntrySerialise(ds, CheatType::EnableAllDrawableTrackPieces, gCheatsEnableAllDrawableTrackPieces, count);
 
@@ -199,6 +202,9 @@ void CheatsSerialise(DataSerialiser& ds)
                     break;
                 case CheatType::DisableRideValueAging:
                     ds << gCheatsDisableRideValueAging;
+                    break;
+                case CheatType::AutomaticRidePricing:
+                    ds << gCheatsAutomaticRidePricing;
                     break;
                 case CheatType::IgnoreResearchStatus:
                     ds << gCheatsIgnoreResearchStatus;
@@ -305,6 +311,8 @@ const char* CheatsGetName(CheatType cheatType)
             return language_get_string(STR_CHEAT_OWN_ALL_LAND);
         case CheatType::DisableRideValueAging:
             return language_get_string(STR_CHEAT_DISABLE_RIDE_VALUE_AGING);
+        case CheatType::AutomaticRidePricing:
+            return language_get_string(STR_CHEAT_AUTOMATIC_RIDE_PRICING);
         case CheatType::IgnoreResearchStatus:
             return language_get_string(STR_CHEAT_IGNORE_RESEARCH_STATUS);
         case CheatType::EnableAllDrawableTrackPieces:

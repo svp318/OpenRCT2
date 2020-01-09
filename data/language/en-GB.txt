@@ -3668,6 +3668,8 @@ STR_6345    :Tile Inspector: Increase element height
 STR_6346    :Tile Inspector: Decrease element height
 STR_6347    :Path additions cannot be placed on level crossings!
 STR_6348    :Remove level crossing first!
+STR_6349    :Automatic ride pricing
+STR_6350    :{SMALLFONT}{BLACK}Rides will have their admission price automatically set to the maximum amount guests are willing to pay. The price will be kept up-to-date as the ride gets older.
 
 #############
 # Scenarios #

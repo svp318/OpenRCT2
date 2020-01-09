@@ -3895,6 +3895,9 @@ enum
     STR_CANNOT_BUILD_PATH_ADDITIONS_ON_LEVEL_CROSSINGS = 6347,
     STR_REMOVE_LEVEL_CROSSING_FIRST = 6348,
 
+    STR_CHEAT_AUTOMATIC_RIDE_PRICING = 6349,
+    STR_CHEAT_AUTOMATIC_RIDE_PRICING_TIP = 6350,
+
     // Have to include resource strings (from scenarios and objects) for the time being now that language is partially working
     STR_COUNT = 32768
 };
